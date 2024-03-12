@@ -10,6 +10,10 @@
 
     <TextView
         android:text=""
+<<<<<<< HEAD
+=======
+        android:padding="20dp"
+>>>>>>> b6221a7 (Commit de alterações)
         android:id="@+id/caixaTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,7 +113,11 @@
             android:text="0"></Button>
 
         <Button
+<<<<<<< HEAD
             android:id="@+id/botaoResultado"
+=======
+            android:id="@+id/botaoIgual"
+>>>>>>> b6221a7 (Commit de alterações)
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="="></Button>
@@ -120,5 +128,10 @@
             android:layout_height="wrap_content"
             android:text="/"></Button>
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b6221a7 (Commit de alterações)
     </GridLayout>
 </LinearLayout>

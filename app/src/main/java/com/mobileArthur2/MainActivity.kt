@@ -27,8 +27,22 @@ class MainActivity : AppCompatActivity() {
        val botaoMultipla = findViewById<Button>(R.id.botaoMultipla)
        val botaoSoma = findViewById<Button>(R.id.botaoSoma)
        val botaoSubtrai = findViewById<Button>(R.id.botaoSubtrai)
+<<<<<<< HEAD
        val caixaTexto = findViewById<TextView>(R.id.caixaTexto)
 
+=======
+        val botaoIgual = findViewById<Button>(R.id.botaoIgual)
+        val botaoDivide = findViewById<Button>(R.id.botaoDivide)
+
+       val caixaTexto = findViewById<TextView>(R.id.caixaTexto)
+
+        val numberButtons = listOf(
+            R.id.botao0, R.id.botao1, R.id.botao2, R.id.botao3, R.id.botao4,
+            R.id.botao5, R.id.botao6, R.id.botao7, R.id.botao8, R.id.botao9
+        )
+
+
+>>>>>>> b6221a7 (Commit de alterações)
         botao1.setOnClickListener { view ->
             caixaTexto.text = if(caixaTexto.text == "0") "1" else caixaTexto.text.toString().plus(other = "1")
         }
@@ -59,8 +73,81 @@ class MainActivity : AppCompatActivity() {
         botao0.setOnClickListener { view ->
             caixaTexto.text = if(caixaTexto.text == "0") "0" else caixaTexto.text.toString().plus(other = "0")
         }
+<<<<<<< HEAD
         botaoLimpa.setOnClickListener { view ->
             caixaTexto.text = "0"
+=======
+        var operador = ""
+        var numero1 = 0
+        var numero2 = 0
+
+        // Configurando os listeners para os botões de números
+        for (buttonId in numberButtons) {
+            findViewById<Button>(buttonId).setOnClickListener { view ->
+                val buttonText = (view as Button).text.toString()
+                if (caixaTexto.text == "0") {
+                    caixaTexto.text = buttonText
+                } else {
+                    caixaTexto.append(buttonText)
+                }
+            }
+        }
+
+        // Configurando listener para o botão de limpar
+        botaoLimpa.setOnClickListener {
+            caixaTexto.text = ""
+            operador = ""
+        }
+
+        // Configurando listener para o botão de soma
+        botaoSoma.setOnClickListener {
+            operador = "+"
+            numero1 = caixaTexto.text.toString().toInt()
+            caixaTexto.text = ""
+        }
+
+        // Configurando listener para o botão de subtração
+        botaoSubtrai.setOnClickListener {
+            operador = "-"
+            numero1 = caixaTexto.text.toString().toInt()
+            caixaTexto.text = ""
+        }
+
+        // Configurando listener para o botão de multiplicação
+        botaoMultipla.setOnClickListener {
+            operador = "*"
+            numero1 = caixaTexto.text.toString().toInt()
+            caixaTexto.text = ""
+        }
+
+        botaoDivide.setOnClickListener {
+            operador = "/"
+            numero1 = caixaTexto.text.toString().toInt()
+            caixaTexto.text = ""
+        }
+
+        // Configurando listener para o botão de igual
+        botaoIgual.setOnClickListener {
+            numero2 = caixaTexto.text.toString().toInt()
+            val resultado = when (operador) {
+                "+" -> numero1 + numero2
+                "-" -> numero1 - numero2
+                "*" -> numero1 * numero2
+                "/" -> {
+                    if (numero2 != 0) {
+                        numero1 / numero2
+                    } else {
+                        // Tratamento de divisão por zero
+                        // Você pode adicionar sua própria lógica aqui
+                        // Por exemplo, exibir uma mensagem de erro
+                        0
+                    }
+                }
+                else -> 0 // Operador inválido
+            }
+            caixaTexto.text = resultado.toString()
+            operador = ""
+>>>>>>> b6221a7 (Commit de alterações)
         }
     }
 }
