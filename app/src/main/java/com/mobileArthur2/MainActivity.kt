@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         botaoSubtrai.setOnClickListener {
             operador = "-"
             numero1 = caixaTexto.text.toString().toInt()
-            caixaTexto.text = "0"
+            caixaTexto.text = ""
         }
 
         // Configurando listener para o botão de multiplicação
